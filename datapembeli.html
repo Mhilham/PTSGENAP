@@ -34,7 +34,7 @@
   <a href="index.html">daftar pembeli</a>
   
   <script type="module">
-    import { tambahProduk } from './main.js';
+    import { tambahpembeli } from './main.js';
     
     let tomboltambah = document.getElementById('tombol-tambah');
     let elemenNamapembeli = document.getElementById('input-nama');
@@ -43,7 +43,7 @@
     
     tomboltambah.addEventListener('click', async function (e) {
       e.preventDefault();
-      await tambahpembeli(elemenNamaProduk.value, elemenHarga.value, elemenStok.value);
+      await tambahpembeli(elemenNamapembeli.value, elemenalamat.value, elemennotlnp.value);
       window.location.href = 'index.html';
     });
   </script>
