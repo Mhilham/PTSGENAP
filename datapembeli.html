@@ -39,11 +39,11 @@
     let tomboltambah = document.getElementById('tombol-tambah');
     let elemenNamapembeli = document.getElementById('input-nama');
     let elemenalamat = document.getElementById('input-harga');
-    let elemennotlnp = document.getElementById('input-stok');
+    let elemennotlpn = document.getElementById('input-stok');
     
     tomboltambah.addEventListener('click', async function (e) {
       e.preventDefault();
-      await tambahpembeli(elemenNamapembeli.value, elemenalamat.value, elemennotlnp.value);
+      await tambahpembeli(elemenNamapembeli.value, elemenalamat.value, elemennotlpn.value);
       window.location.href = 'index.html';
     });
   </script>
