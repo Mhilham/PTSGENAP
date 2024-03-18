@@ -33,8 +33,8 @@ export async function ambildaftarpembeli() {
     hasil.push({ 
       id: dok.id, 
       nama: dok.data().nama,
-      harga:dok.data().alamat,
-      stok:dok.data().notlpn,
+      alamat:dok.data().alamat,
+      notlpn:dok.data().notlpn,
       });
   });
   
@@ -49,12 +49,12 @@ export async function tambahpembeli(nama, alamat,  notlpn) {
   try {
    const dokRef = await addDoc(collection(db, 'pembeli'), {
      nama: nama,
-     harga:alamat,
-     stok: notlpn,
+     alamat:alamat,
+     notlpn:notlpn,
    });
    console.log('behasil menambah pembeli' + dokRef.id);
   } catch (e) {
     console.log('gagal menambah pembeli ' + e);
   }
   
-}
+} 
