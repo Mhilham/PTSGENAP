@@ -24,6 +24,7 @@
       <th scope="col">Nama pembeli</th>
       <th scope="col">alamat</th>
       <th scope="col">Nolpn</th>
+      <th scope="col">hapus</th>
     </tr>
   </thead>
   <tbody> 
@@ -31,12 +32,14 @@
   </tbody>
 </table>
 
-
+<div id="loader">
+  loading...
+</div>
 
 <a href="datapembeli.html">tambah data pembeli</a>
   
   <script type="module">
-    import  {ambildaftarpembeli, formatAngka} from './main.js';
+    import  {ambildaftarpembeli, formatAngka, hapuspembeli} from './main.js';
     
     $(document).ready(async function() {
     let elemendaftar =  $("#daftar-pembeli > tbody");
@@ -51,12 +54,29 @@
       '<td>' + data.nama + '</td>' +
       '<td>' + data.alamat + '</td>' +
       '<td>' + data.notlpn + '</td>' +
+       '<td>' + '<button class="btn btn-danger tombol-hapus" data="' + data.id + '">hapus</button>' + 
+      '<img src="loader.gif" style="width: 3em; display: none" id="' + data.id + '">' +
+      '</td>' +
+      
       '</tr>'
+     
       );
       nomor = nomor + 1;
     });
     
     $('#loader').hide();
+    
+      $('.tombol-hapus').click(async function() {
+      $(this).attr('disabled', 'disabled');
+      $('#' + $(this).attr('data')).show();
+      await hapuspembeli($(this).attr('data'));
+      location.reload();
+    });
+    
+    $('.link-ubah').click(async function() {
+        window.location.replace('ubah-produk.html?docId=' + $(this).attr('data'));
+      })
+  
     
   });
   </script>

@@ -58,3 +58,7 @@ export async function tambahpembeli(nama, alamat,  notlpn) {
   }
   
 } 
+
+export async function hapuspembeli(docId) {
+  await deleteDoc(doc(db, "pembeli", docId));
+}
